@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+">
+    <!--1.目标类-->
+    <bean id="userDao" class="com.ssii.UserDao" scope="singleton"></bean>
+
+    <!--2.增强-->
+    <bean id="myAspect" class="com.ssii.MyAspect"></bean>
+
+    <!--3.切面-->
+    <aop:config>
+        <aop:pointcut id="myPointCut" expression="execution( * com.ssii..*.*(..))"/>
+    </aop:config>
+
+</beans>
